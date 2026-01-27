@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 
 export default function Login() {
+    const { user, isAuthenticated, loading, error, login, logout } = useAuth();
     const [userType, setUserType] = useState('user');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
-    const handleLogin = (e) => {
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate('/');
+        }
+    }, [isAuthenticated, navigate]);
+
+    const handleLogin = async (e) => {
         e.preventDefault();
         console.log(`Login as ${userType}:`, { email, password });
+        await login({ email, password });
     };
 
     return (

@@ -1,16 +1,61 @@
-# React + Vite
+# Green Spot Organics UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+Green Spot Organics UI is a frontend application for managing and displaying organic product information and e-commerce functionality.
 
-Currently, two official plugins are available:
+## Project Structure
+```
+greenSpotOrganics_UI/
+├── src/
+│   ├── components/     # Reusable UI components
+│   ├── pages/          # Page components
+│   ├── services/       # API calls and data fetching
+│   ├── styles/         # CSS/styling files
+│   ├── utils/          # Helper functions
+│   └── App.js          # Root component
+├── public/             # Static assets
+└── package.json        # Dependencies
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key Features
+- Product catalog display
+- Shopping cart functionality
+- User authentication
+- Order management
+- Responsive design
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Installation
+```bash
+npm install
+```
 
-## Expanding the ESLint configuration
+### Running the Application
+```bash
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Building for Production
+```bash
+npm run build
+```
+
+## Development Flow
+1. **Components** - Modular, reusable UI elements
+2. **Pages** - Combine components to form complete pages
+3. **Services** - Handle API communication
+4. **State Management** - Manage application state
+5. **Styling** - Apply responsive CSS
+
+## Technologies
+- JavaScript/React
+- HTML5/CSS3
+- [Add your HTTP client library]
+- [redux toolkit for state management]
+
+## Contributing
+Follow existing code patterns and maintain component modularity.
+
+## License
+[Add license information]
