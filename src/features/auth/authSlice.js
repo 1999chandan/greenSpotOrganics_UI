@@ -7,6 +7,8 @@ const authSlice = createSlice({
     isAuthenticated: false,
     loading: false,
     error: null,
+    token: null,
+    role: null, // 'admin' | 'user'
   },
   reducers: {
     loginStart: (state) => {
@@ -14,9 +16,14 @@ const authSlice = createSlice({
       state.error = null;
     },
     loginSuccess: (state, action) => {
-      state.user = action.payload;
+      const { user, token, role } = action.payload;
+      state.user = user;
+      state.token = token;
+      state.role = role;
       state.isAuthenticated = true;
       state.loading = false;
+      localStorage.setItem('authToken', token);
+      localStorage.setItem('userRole', role);
     },
     loginFailure: (state, action) => {
       state.error = action.payload;
@@ -25,9 +32,16 @@ const authSlice = createSlice({
     logout: (state) => {
       state.user = null;
       state.isAuthenticated = false;
+      state.token = null;
+      state.role = null;
+      localStorage.removeItem('authToken');
+      localStorage.removeItem('userRole');
+    },
+    setRole: (state, action) => {
+      state.role = action.payload;
     },
   },
 });
 
-export const { loginStart, loginSuccess, loginFailure, logout } = authSlice.actions;
+export const { loginStart, loginSuccess, loginFailure, logout, setRole } = authSlice.actions;
 export default authSlice.reducer;
