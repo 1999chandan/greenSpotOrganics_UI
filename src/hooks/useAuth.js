@@ -6,11 +6,13 @@ export const useAuth = () => {
   const { user, isAuthenticated, loading, error, role } = useSelector((state) => state.auth);
 
   const login = async (credentials) => {
+    console.log("credentials", credentials);
+    
     dispatch(loginStart());
     try {
       // Mock login - replace with actual API call
-      const mockUser = { id: 1, name: 'John Doe', email: credentials.email, role: 'user' };
-      dispatch(loginSuccess({ user: mockUser, token: 'mock-token', role: 'user' }));
+      const mockUser = { id: 1, name: 'John Doe', email: credentials.email, role: role };
+      dispatch(loginSuccess({ user: credentials.email, token: 'mock-token', role: credentials.userType }));
     } catch (err) {
       dispatch(loginFailure(err.message));
     }

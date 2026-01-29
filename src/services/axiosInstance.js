@@ -1,5 +1,5 @@
 import axios from 'axios';
-import store from '../app/store';
+import {store } from '../app/store';
 
 // Get the API base URL from environment variables
 // Fallback to localhost for development
