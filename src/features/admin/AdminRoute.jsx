@@ -12,7 +12,7 @@ const AdminRoute = ({ children }) => {
     return <Navigate to="/login" replace />;
   }
 const isAdmin = localStorage.getItem("userRole") == "admin";
-console.log(isAdmin);
+
 
   if (!isAdmin) {
     return <Navigate to="/" replace />;

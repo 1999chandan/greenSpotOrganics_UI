@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 
+
 export default function Login() {
   const { user, isAuthenticated, loading, error, login, logout } = useAuth();
   const [userType, setUserType] = useState("user");
@@ -12,7 +13,7 @@ export default function Login() {
 
   useEffect(() => {
     console.log(isAdmin);
-    
+
     if (isAuthenticated) {
       if (isAdmin) {
         console.log("Navigating to admin dashboard");
@@ -23,7 +24,6 @@ export default function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log(`Login as ${userType}:`, { email, password });
     await login({ email, password, userType });
   };
 

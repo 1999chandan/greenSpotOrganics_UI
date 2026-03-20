@@ -5,9 +5,11 @@ import AppRoutes from './routes/AppRoutes';
 import './App.css';
 
 function App() {
+  const basename = process.env.NODE_ENV === 'production' ? '/greenSpotOrganics_UI' : '/';
+  
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <AppRoutes />
       </BrowserRouter>
     </Provider>
